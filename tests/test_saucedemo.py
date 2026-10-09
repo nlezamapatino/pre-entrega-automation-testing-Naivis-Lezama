@@ -14,14 +14,17 @@ def navegador():
     navegador.quit()
 
 
+# Prueba para comprobar que el inicio de sesion
 def test_login_exitoso(navegador):
     abrir_saucedemo(navegador)
     iniciar_sesion(navegador)
     validar_pagina_inventario(navegador)
 
+    # Comprueba que el usuario fue redirigido al catalogo
     assert "/inventory.html" in navegador.current_url
 
 
+# Comprobar que el catalogo muestra sus productos
 def test_catalogo(navegador):
     """Verifica que exista al menos un producto visible en el catálogo."""
 
@@ -34,7 +37,9 @@ def test_catalogo(navegador):
 
     assert nombre
     assert precio
-    
+
+
+ # Con esta se quiere probar que se puede agregar un producto al carrito.   
 def test_carrito(navegador):
     """Verifica que se pueda agregar un producto al carrito."""
 
